@@ -3,9 +3,10 @@
 .movies-list {
   list-style-type: none;
   padding: 0;
+  /* display: flex; */
   flex-wrap: wrap;
   gap: 15px;
- 
+  /* margin-left:1%; */
   margin:0;
   display:inline-block;
 }
@@ -13,7 +14,13 @@
   display: inline-block;
   margin: 10px; 
   vertical-align: top; 
-
+ 
+}
+h1{
+  text-align: center;
+  color: #FFFFFF;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  padding-top:15px;
 }
 
 .movie-item {
@@ -26,6 +33,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #FFFFFF;
 }
 
 .movie-image {
@@ -48,12 +56,19 @@
 }
 
 a:link{
-  color: blue;
+  color: black;
 }
 
 a:visited{
-  color: blue;
+  color: black;
 }
 a:hover{
-  color:pink;
+  color:darkblue;
+}
+.container{
+  background-color: #333333;
+}
+
+button{
+  margin-top:7px;
 }
