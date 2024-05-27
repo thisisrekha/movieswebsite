@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorites, removeFromFavorites } from '../redux/actions/favoriteActions';
-import './MoviesComponent.css'; // Ensure this CSS file exists
+import './MoviesComponent.css';
 
 const MoviesComponent = () => {
   const [movies, setMovies] = useState([]);
   const apiUrl = process.env.REACT_APP_MOVIES_API_URL;
   const placeholderImage = 'https://via.placeholder.com/150?text=Image+Unavailable';
 
-  // Get the list of favorite movies from Redux state
   const favoriteMovies = useSelector(state => state.favoriteMovies.favorites);
   const dispatch = useDispatch();
 
@@ -22,7 +21,8 @@ const MoviesComponent = () => {
       .catch(error => console.error('Error:', error));
   };
 
-  const toggleFavorite = (id) => {
+  const toggleFavorite = (id, e) => {
+    e.stopPropagation();
     const isFavorite = favoriteMovies.some(movie => movie.id === id);
     if (isFavorite) {
       dispatch(removeFromFavorites(id));
@@ -37,18 +37,11 @@ const MoviesComponent = () => {
   }, []);
 
   return (
-    <div class="container">
+    <div className="container">
       <h1>Movies</h1>
       <ul className="movies-list">
         {movies.map(movie => (
-          <a
-          key={movie.id}
-          href={movie.imdb_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="movie-link"
-         >
-          <li key={movie.id} className="movie-item">
+          <li key={movie.id} className="movie-item" onClick={() => window.open(movie.imdb_url, '_blank', 'noopener,noreferrer')}>
             <div className="movie-details">
               <h2>{movie.movie}</h2>
               <p>Rating: {movie.rating}</p>
@@ -59,17 +52,18 @@ const MoviesComponent = () => {
                 className="movie-image"
               />
               <div>
+              <div>
                 <a href={movie.imdb_url} target="_blank" rel="noopener noreferrer">IMDb</a>
 
               </div>
+              </div>
               <div>
-                <button onClick={() => toggleFavorite(movie.id)}>
+                <button onClick={(e) => toggleFavorite(movie.id, e)}>
                   {favoriteMovies.some(favMovie => favMovie.id === movie.id) ? 'Unfavorite' : 'Favorite'}
                 </button>
               </div>
             </div>
           </li>
-          </a>
         ))}
       </ul>
     </div>

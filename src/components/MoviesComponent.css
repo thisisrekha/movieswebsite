@@ -1,3 +1,4 @@
+
 /* MoviesComponent.css */
 
 .movies-list {
@@ -34,6 +35,17 @@ h1{
   flex-direction: column;
   align-items: center;
   background-color: #FFFFFF;
+  transition: transform 0.3s, color 0.3s;
+}
+
+
+.movie-item:hover {
+  transform: scale(1.10); /* Increases the size of the card on hover */
+}
+
+.movie-item:hover .movie-details h2,
+.movie-item:hover .movie-details p {
+  color: blue; /* Changes the text color to blue on hover */
 }
 
 .movie-image {
