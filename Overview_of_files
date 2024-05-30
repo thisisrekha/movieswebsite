@@ -1,0 +1,110 @@
+Brief description for the files present:
+
+                                      index.js
+
+Entry Point for the Application:
+
+index.js usually serves as the entry point for your JavaScript application. When we start our development server or build our application, this file is typically the first to be executed.
+It sets up and renders the main component of the application, often using a framework like React or Angular. For instance, in a React app, index.js will render the root component (commonly <App />) into the DOM.
+
+                                        index.css
+
+index.css is typically used for defining global CSS styles that apply to the entire application. These styles include reset or normalize CSS, typography, global layout styles, and base styles that are shared across multiple components.
+
+
+
+                                        App.js
+Root Component:
+
+App.js is usually the root component of your React application. It acts as a container for all other components that make up our application.
+This is the component that gets rendered by index.js into the DOM, often into an element with an id like root.
+
+
+functionality provided: 
+
+    1.Nav Bar for displaying the 
+    2.And linking the home page to the MoviesComponent.jsx and FavoriteMovieList.jsx
+
+                                        App.css
+
+Styling the Root Component:
+
+App.css is used to style the App.js component, which is the root component of the application. It defines styles for the elements within this component, ensuring the root component looks as intended.
+
+Modular Styles:
+
+It allows for modular CSS by keeping styles related to the App.js component in a separate file. This modularity helps in maintaining and scaling the application by keeping styles organized.
+
+FunctionalityProvided:
+
+    1.styling the components apart from the movies.( nav bar, page without the movies list )
+    2.Initial Responsivity apart from the MovieCoponent.css.
+
+
+
+                                        MoviesComponent.jsx
+
+ purpose of this file is to fetch a list of movies from an API, display them in a sorted order based on their rating, and allow users to mark movies as favorites or remove them from the favorites list. The favorites list is managed using Redux, which provides a global state for the application.
+
+ FunctionaityAdded:
+
+    1.Fetching movies from api and displaying all the movies in sorted order.           
+    2.Displaying the Movies in boxes and providing links.              
+    3.Managing favorites.
+
+
+                                        FAVORITEMOVIELIST.JSX
+
+The FavoriteMoviesList.jsx file is a React component designed to display a list of favorite movies fetched from the Redux store. It shares some similarities with the MoviesComponent in terms of styling and structure but focuses exclusively on rendering the user's favorite movies.
+
+Functionalites Added:
+    1. Accessing favourite movies from Moviescomponent through redux.       
+    2. Displaying them and removing the movies when clicked on unfavorite button    
+
+
+State Management:
+Responsibility: Manage local state and interact with global state using Redux.
+Details:
+The component uses the useState hook to manage the local movies state.
+It utilizes the useSelector hook to access the favoriteMovies from the Redux store.
+It uses the useDispatch hook to dispatch actions to add or remove movies from the favorites list.
+
+                                           REDUX
+
+Provides us state management and linking our movescomponent.jsx and favouritescomponents.jsx 
+
+So, speaking of:
+actions.js: contains our function defintions 
+store.js : contains the all the vairables or stored{ global varialbles in a sense.}
+reducers.js : Contians the entire functions that were defined inside of the actions.js 
+
+                                        actions.js
+
+Description: Defines action types and action creators for adding and removing movies from the favorites list.
+
+Key Components:
+    1.ADD_TO_FAVORITES: Action type for adding a movie to favorites.
+    2.REMOVE_FROM_FAVORITES: Action type for removing a movie from favorites.
+    3.addToFavorites(movie): Action creator that returns an action to add a movie.
+    4.removeFromFavorites(movieId): Action creator that returns an action to remove a movie by ID.
+
+                                        reducers.js
+
+Description: Defines the reducer that handles state changes based on the dispatched actions related to favorite movies.
+
+Key Components:
+    1.initialState: The initial state with an empty favorites array.
+    2.favoriteReducer(state, action): Reducer function that returns a new state based on the action type 
+
+
+                                        store.js
+Description: Configures and creates the Redux store with the root reducer.
+
+Key Components:
+    1.configureStore: Function from Redux Toolkit used to create the store.
+    2.rootReducer: Combines all sub-reducers (e.g., favoriteReducer) into a single root reducer.
+    3.store: The Redux store that holds the application state.
+
+
+
+
