@@ -91,3 +91,28 @@ Follow these steps to set up the project locally:
 The application is deployed and can be accessed [here](https://thisisrekha.github.io/movieswebsite/)
 
 
+## API Usage Instructions
+
+### Getting Started
+
+To interact with the Movies API, follow these steps using Postman:
+
+1. **Set Up Postman**:
+   - Download and install Postman from [here](https://www.postman.com/downloads/).
+
+2. **API Endpoint**:
+   - Base URL: `https://dummyapi.online`
+
+### GET Request
+
+- **Endpoint**: `/api/movies`
+- **Method**: GET
+- **Description**: Retrieve the list of all movies.
+- **Steps**:
+  1. Open Postman.
+  2. Create a new GET request.
+  3. Enter the URL: `https://dummyapi.online/api/movies`
+  4. Click "Send".
+  5. View the response in the body section.
+
+
